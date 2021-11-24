@@ -1,0 +1,8 @@
+### Cadastrar um novo item de venda
+POST https://localhost:5001/api/pagamento/create
+Content-Type: application/json
+
+{
+    "produto" : 1,
+    "formadepagamento" :,
+}

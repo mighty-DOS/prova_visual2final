@@ -22,7 +22,6 @@ import { IndexComponent } from "./components/views/home/index/index.component";
 import { CadastrarProdutoComponent } from "./components/views/produto/cadastrar-produto/cadastrar-produto.component";
 import { ListarProdutoComponent } from "./components/views/produto/listar-produto/listar-produto.component";
 import { CarrinhoComponent } from './components/views/home/carrinho/carrinho.component';
-import { PagarCompraComponent } from './components/views/home/pagar/pagar-compra/pagar-compra.component';
 import { PagamentoComponent } from './components/views/pagamento/pagamento.component';
 
 @NgModule({
@@ -33,7 +32,6 @@ import { PagamentoComponent } from './components/views/pagamento/pagamento.compo
         TemplateComponent,
         IndexComponent,
         CarrinhoComponent,
-        PagarCompraComponent,
         PagamentoComponent,
     ],
     imports: [

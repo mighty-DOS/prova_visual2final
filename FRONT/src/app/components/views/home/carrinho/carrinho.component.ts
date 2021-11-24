@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ItemVenda } from "src/app/models/item-venda";
-import { ItemService } from "src/app/services/item.service";
+import { ItemVendaService } from "src/app/services/item-venda.service";
 
 @Component({
     selector: "app-carrinho",
@@ -11,7 +11,7 @@ export class CarrinhoComponent implements OnInit {
     itens: ItemVenda[] = [];
     colunasExibidas: String[] = ["nome", "preco", "quantidade", "imagem"];
     valorTotal!: number;
-    constructor(private itemService: ItemService) {}
+    constructor(private itemService: ItemVendaService) {}
 
     ngOnInit(): void {
         let carrinhoId = localStorage.getItem("carrinhoId")! || "";

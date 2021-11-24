@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PagamentoService } from '../../../services/pagamento.service';
@@ -9,23 +10,21 @@ import { Pagamento } from 'src/app/models/pagamento'
   styleUrls: ['./pagamento.component.css']
 })
 export class PagamentoComponent implements OnInit {
-    bandeira: string;
-    formapag: string;
+    
+    BandeiraCartao!: string;
+    FormaPagamento!: string;
 
-    constructor(
-        private router: Router,
-        private PagamentoService: PagamentoService,
-    ) {}
+    constructor(private pagamentoService: PagamentoService, private router: Router) {}
 
     ngOnInit(): void {
     }
 
-    cadastrar(): void {
+    cadastrarpag(): void {
         let pagamento: Pagamento = {
-            BandeiraCartao: this.bandeira,
-            FormaPagamento: this.formapag
+            BandeiraCartao: this.BandeiraCartao,
+            FormaPagamento: this.FormaPagamento,
         };
-        this.PagamentoService.create(pagamento).subscribe((pagamento) => {
+        this.pagamentoService.create(pagamento).subscribe((pagamento) => {
             console.log(pagamento);
             this.router.navigate([""]);
         });

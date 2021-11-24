@@ -1,9 +1,9 @@
-import { Component, OnInit } from "@angular/core";
+import { ItemVenda } from "./../../../../models/item-venda";
 import { Router } from "@angular/router";
-import { ItemVenda } from "src/app/models/item-venda";
-import { Produto } from "src/app/models/produto";
-import { ItemService } from "src/app/services/item.service";
+import { Component, OnInit } from "@angular/core";
 import { ProdutoService } from "src/app/services/produto.service";
+import { Produto } from "src/app/models/produto";
+import { ItemVendaService } from "src/app/services/item-venda.service";
 
 @Component({
     selector: "app-index",
@@ -11,11 +11,11 @@ import { ProdutoService } from "src/app/services/produto.service";
     styleUrls: ["./index.component.css"],
 })
 export class IndexComponent implements OnInit {
-    produtos: Produto[] = [];
+    produtos!: Produto[];
 
     constructor(
         private produtoService: ProdutoService,
-        private itemService: ItemService,
+        private itemService: ItemVendaService,
         private router: Router
     ) {}
 
@@ -34,8 +34,8 @@ export class IndexComponent implements OnInit {
             carrinhoId: localStorage.getItem("carrinhoId")! || "",
         };
         this.itemService.create(item).subscribe((item) => {
-            localStorage.setItem("carrinhoId", item.carrinhoId);
-            this.router.navigate(["home/carrinho"]);
+            localStorage.setItem("carrinhoId", item.carrinhoId!);
+            this.router.navigate(["/home/carrinho"]);
         });
     }
 }

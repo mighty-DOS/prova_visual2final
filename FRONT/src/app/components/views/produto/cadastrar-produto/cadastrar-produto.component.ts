@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { Categoria } from "src/app/models/categoria";
 import { Produto } from "src/app/models/produto";
 import { CategoriaService } from "src/app/services/categoria.service";
 import { ProdutoService } from "src/app/services/produto.service";
+import { Categoria } from "./../../../../models/categoria";
 
 @Component({
     selector: "app-cadastrar-produto",
@@ -19,14 +19,15 @@ export class CadastrarProdutoComponent implements OnInit {
     categoriaId!: number;
 
     constructor(
-        private router: Router,
         private produtoService: ProdutoService,
-        private categoriaService: CategoriaService
+        private categoriaService: CategoriaService,
+        private router: Router
     ) {}
 
     ngOnInit(): void {
         this.categoriaService.list().subscribe((categorias) => {
             this.categorias = categorias;
+            console.table(categorias);
         });
     }
 
@@ -34,8 +35,8 @@ export class CadastrarProdutoComponent implements OnInit {
         let produto: Produto = {
             nome: this.nome,
             descricao: this.descricao,
-            preco: this.preco,
             quantidade: this.quantidade,
+            preco: this.preco,
             categoriaId: this.categoriaId,
         };
         this.produtoService.create(produto).subscribe((produto) => {

@@ -1,15 +1,12 @@
-.content {
-    padding: 16px;
-}
-
 .container {
     height: calc(100% - 64px);
 }
-
-.sidenav {
-    width: 12vw;
+.icon {
+    margin-right: 10px;
 }
-
+.content {
+    padding: 16px;
+}
 .title {
     font-size: 1.1em;
 }

@@ -1,8 +1,10 @@
-
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PagamentoService } from '../../../services/pagamento.service';
 import { Pagamento } from 'src/app/models/pagamento'
+import { FormapagService } from 'src/app/services/formapag.service';
+import { Formapag } from 'src/app/models/formapag';
+
 
 @Component({
   selector: 'app-pagamento',
@@ -10,19 +12,24 @@ import { Pagamento } from 'src/app/models/pagamento'
   styleUrls: ['./pagamento.component.css']
 })
 export class PagamentoComponent implements OnInit {
-    
-    BandeiraCartao!: string;
-    FormaPagamento!: string;
 
-    constructor(private pagamentoService: PagamentoService, private router: Router) {}
+    NomeCliente!: string;
+    Formapagid!: number;
+    formapags!: Formapag[];
+
+    constructor(private pagamentoService: PagamentoService, private formapagService: FormapagService, private router: Router) {}
 
     ngOnInit(): void {
+        this.formapagService.list().subscribe((formpags) => {
+            this.formapags = formpags;
+            console.table(formpags);
+        });
     }
 
     cadastrarpag(): void {
         let pagamento: Pagamento = {
-            BandeiraCartao: this.BandeiraCartao,
-            FormaPagamento: this.FormaPagamento,
+            NomeCliente: this.NomeCliente,
+            Formapagid: this.Formapagid,
         };
         this.pagamentoService.create(pagamento).subscribe((pagamento) => {
             console.log(pagamento);

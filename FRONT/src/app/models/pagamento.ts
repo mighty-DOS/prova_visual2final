@@ -1,6 +1,10 @@
+/*import { Formapag } from "./formapag";*/
+
 export interface Pagamento {
     id?: number;
-    BandeiraCartao: string;
-    FormaPagamento: string;
+    Formapagid?: number;
+    Formapag?: string;
+    NomeCliente: string;
     CriadoEm?: Date;
+
 }

@@ -26,9 +26,9 @@ namespace API.Controllers
             );
             _context.Produtos.AddRange(new Produto[]
                 {
-                    new Produto { Id = 1, Nome = "Produto 1", Preco = 1, Quantidade = 1, CategoriaId = 1 },
-                    new Produto { Id = 2, Nome = "Produto 2", Preco = 2, Quantidade = 2, CategoriaId = 1 },
-                    new Produto { Id = 3, Nome = "Produto 3", Preco = 3, Quantidade = 3, CategoriaId = 1 },
+                    new Produto { Id = 1, Nome = "Arroz", Preco = 4, Quantidade = 2, CategoriaId = 1 },
+                    new Produto { Id = 2, Nome = "Feijão", Preco = 1, Quantidade = 1, CategoriaId = 1 },
+                    new Produto { Id = 3, Nome = "Pão", Preco = 8, Quantidade = 4, CategoriaId = 1 },
                 }
             );
             _context.SaveChanges();

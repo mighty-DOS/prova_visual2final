@@ -3,6 +3,6 @@ POST https://localhost:5001/api/pagamento/create
 Content-Type: application/json
 
 {
-    "bandeiracartao" : "credito",
-    "formadepagamento" :"cartao",
+    "Cliente" : "José",
+    "Formapag" :"cartao",
 }
